@@ -1,0 +1,41 @@
+<div class="col-md-12">
+  <label>Search User's Github Information</label>
+</div>
+<div class="col-md-12">
+  <form>
+    <div class="form-group">
+      <input type="text"
+        class="form-control"
+        placeholder="Enter Github Username..."
+        name="username"
+        [(ngModel)]="username"
+        (keyup)="searchUser()">
+    </div>
+  </form>
+</div>
+<div>
+  <div *ngIf="user">
+    <ul>
+      <li *ngIf="user.name">{{user.name}}</li>
+      <li *ngIf="user.bio">{{ user.bio }}</li>
+      <li *ngIf="user.blog">{{ user.blog }}</li>
+      <li *ngIf="user.company">{{ user.company }}</li>
+      <li *ngIf="user.created_at">{{ user.created_at }}</li>
+      <li *ngIf="user.email">{{ user.email }}</li>
+      <li *ngIf="user.url">{{ user.events_url }}</li>
+      <li *ngIf="user.followers">{{ user.followers }}</li>
+      <li *ngIf="user.followers_url">{{ user.followers_url }}</li>
+      <li *ngIf="user.following">{{ user.following }}</li>
+      <li *ngIf="user.following_url">{{ user.following_url }}</li>
+    </ul>
+  </div>
+  <div *ngIf="repos">
+    <div *ngFor="let repo of repos">
+      <ul>
+        <li><a target="_blank" href="{{ repo.html_url }}">{{ repo.name }}</a></li>
+        <li>{{ repo.description }}</li>
+        <li>{{ repo.watchers }} Public Repos</li>
+        <li>{{ repo.forks }} Public Gists</li>
+       </ul>
+    </div>
+  </div>
